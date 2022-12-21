@@ -1,0 +1,27 @@
+ALGORITHM Sum_of_distinct_values
+VAR
+    array1 : ARRAY_OF INTEGER[4];
+    array2 : ARRAY_OF INTEGER[4];
+    sum:INTEGER:=0;
+BEGIN
+FOR i FROM 0 TO array1.length STEP 1  DO
+    Read(array1[i]);
+END_FOR
+FOR j FROM 0 TO array2.length STEP 1  DO
+    Read(array2[j]);
+END_FOR
+
+FOR k FROM 0 TO array1.length STEP 1  DO
+    FOR l FROM 0 TO array2.length STEP 1  DO
+        IF (array1[k]=array2[l]) THEN 
+           array1[k]:=0;
+           array2[l]:=0;
+        END_IF
+    END_FOR
+     sum:=sum+array1[k];
+END_FOR
+FOR p FROM 0 TO array2.length STEP 1  DO
+    sum:=sum+array2[p];
+END_FOR
+Write(sum);
+END
